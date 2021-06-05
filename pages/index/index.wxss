@@ -1,0 +1,87 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 100rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+
+
+.inputstyle{
+  padding-left: 10px;
+  height: 44px;
+}
+
+.textout{  
+  color: #666;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  margin-left: 30rpx;
+  line-height: 40rpx;
+  letter-spacing: 2rpx;
+}
+
+.textmood{
+  float: left;
+  margin-top: 15rpx;
+  margin-bottom: 20rpx;
+  color: rgb(103, 29, 221);
+}
+
+.texttext{
+  float: left;
+  margin-top: 15rpx;
+  margin-bottom: 20rpx;
+}
+.inputview{
+      /*边界：大小1px, 为固体，为绿色*/
+    border:  1px solid green;
+    /*边界角的弧度*/
+    border-radius: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.button{
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  margin-top: 30rpx; 
+  border-radius: 40rpx;
+}
+
+.outview{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 60rpx 0; */
+  box-sizing: border-box;
+}
+.moodview{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 60rpx 0; */
+  box-sizing: border-box;
+}

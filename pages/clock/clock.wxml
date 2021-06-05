@@ -1,0 +1,31 @@
+<!--pages/clock/clock.wxml-->
+<view class="section">
+  <text class="sectiontitle">打卡事项:</text>
+  <picker bindchange="bindPickerChange" value="{{infoindex}}" range="{{infos}}">
+    <view class="picker">
+      {{infos[infoindex]}}
+    </view>
+  </picker>
+</view>
+
+<text class="texttitle">时长(分钟)</text>
+<view class="inputview">
+    <!--这个是输入框-->
+    <input class="inputstyle" bindinput="leninput" name='timelen'  type="number" value="0" />
+</view>
+
+<button class='btn' type="primary" bindtap="subclock">打 卡</button>
+<view class='sectiontitle'>
+        <div class='innertitle div1' >事项</div>
+        <div class='innertitle div2'>打卡时间</div>
+        <div class='innertitle div3'>时长</div>
+</view>
+<view class='section'>
+  <block wx:for="{{hisclock}}" data-index="{{index}}">
+    <view class="pview">
+        <div class='inner div1'>{{item.title}}</div>
+        <div class='inner div2'>{{item.date}}</div>
+        <div class='inner div3'>{{item.len}}</div>
+    </view>
+  </block>
+</view>

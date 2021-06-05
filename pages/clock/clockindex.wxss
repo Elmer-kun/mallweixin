@@ -1,0 +1,74 @@
+/* pages/clock/clockindex.wxss */
+.section
+{
+  /* text-align: center; */
+  margin-top: 15rpx;
+  margin-bottom: 140rpx;
+}
+.sectiontitle
+{
+  text-align: left;
+  margin-top: 15rpx;
+  margin-bottom: 80rpx;
+  font-size: 40rpx;
+}
+.inputstyle{
+  margin-top: 20rpx;
+  width: 90%;
+  padding-left: 10px;
+  margin-bottom: 20rpx;
+  height: 35px;
+  border:  1px solid rgb(103, 29, 221);
+  border-radius: 5px;
+}
+
+.texttitle{
+  /* float: left; */
+  margin-top: 15rpx;
+  margin-bottom: 60rpx;
+  font-size: 40rpx;
+}
+.textmin{
+  /* float: right; */
+  margin-top: 15rpx;
+  margin-bottom: 20rpx;
+  color: rgb(103, 29, 221);
+}
+.picker{
+  text-align: center;
+  margin-top: 20rpx;
+  border:  1px solid rgb(103, 29, 221);
+  border-radius: 20px;
+  width: 80%;
+  height: 30px;
+}
+.btn{
+  width: 60%;
+  border-radius: 25px;
+  background: rgb(14, 204, 71);
+}
+.inputview{
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+.del{
+    width: 40rpx;
+    height: 40rpx;
+    right:20rpx;
+    bottom:20rpx;
+    margin-left: 30rpx;
+}
+.content .inner{
+    float: left;
+    padding-left:25rpx;
+
+}
+.pview{
+    height: 50rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s;
+}

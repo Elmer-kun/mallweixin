@@ -1,0 +1,18 @@
+<!--pages/clock/clock.wxml-->
+
+<view class='inputview'>
+    <!--这个是输入框-->
+    <input class='inputstyle' name='addinfo'  type='text' placeholder='要添加的打卡信息' maxlength="20" placeholder-style="color: gray" value="{{addinput}}" bindinput="getaddinfo" />
+    <button class='btn' bindtap="addclock">添加</button>
+</view>
+<view class='section'>
+  <block wx:for="{{infos}}" data-index="{{index}}">
+    <view class="pview">
+      <view class="content">
+        <div class='inner'>{{item}}</div>
+      </view>
+      <image class="del" src="/images/del.png" bindtap="delinfo" data-index="{{index}}"></image>
+    </view>
+  </block>
+</view>
+
