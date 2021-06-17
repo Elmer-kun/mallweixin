@@ -5,8 +5,8 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    var hostip = "https://boredno.com";
-    // var hostip = "http://127.0.0.1:8000";
+    var hostip = "https://boredno.com/wx";
+    // var hostip = "http://127.0.0.1:8081";
 
     // 登录
     wx.login({
@@ -63,7 +63,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    // hostip: "http://127.0.0.1:8000"
-    hostip: "https://boredno.com"
+    // hostip: "http://127.0.0.1:8081"
+    hostip: "https://boredno.com/wx"
   }
 })
