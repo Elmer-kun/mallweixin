@@ -7,7 +7,6 @@ App({
     wx.setStorageSync('logs', logs)
     var hostip = "https://boredno.com/wx";
     // var hostip = "http://127.0.0.1:8081";
-
     // 登录
     wx.login({
       success: function (res) {
@@ -33,7 +32,6 @@ App({
           })
         } else {
           console.log('获取用户登录态失败！' + res.errMsg)
-
         }
       },
       fail: function (err) {
@@ -63,7 +61,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    // hostip: "http://127.0.0.1:8081"
-    hostip: "https://boredno.com/wx"
+    hasLogin: false,
+    hostip: "http://127.0.0.1:8081"
+    // hostip: "https://boredno.com/wx"
   }
 })

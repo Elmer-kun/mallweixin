@@ -1,0 +1,7 @@
+<!--pages/about/about.wxml-->
+<view>
+  <text class="jhx_f4">
+      特产专卖 合作请联系管理员 
+      Tel:15731132602
+  </text>
+</view>

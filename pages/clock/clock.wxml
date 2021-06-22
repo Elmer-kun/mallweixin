@@ -14,6 +14,7 @@
     <input class="inputstyle" bindinput="leninput" name='timelen'  type="number" value="0" />
 </view>
 
+<button class="btn" type="primary" bindtap="goAddClock">添加事项</button>
 <button class='btn' type="primary" bindtap="subclock">打 卡</button>
 <view class='sectiontitle'>
         <div class='innertitle div1' >事项</div>
@@ -21,7 +22,7 @@
         <div class='innertitle div3'>时长</div>
 </view>
 <view class='section'>
-  <block wx:for="{{hisclock}}" data-index="{{index}}">
+  <block wx:for="{{hisclock}}" wx:key='key' data-index="{{index}}">
     <view class="pview">
         <div class='inner div1'>{{item.title}}</div>
         <div class='inner div2'>{{item.date}}</div>

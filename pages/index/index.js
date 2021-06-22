@@ -242,7 +242,7 @@ Page({
     })
   },
   jumptoclock:function(){
-    wx.switchTab({
+    wx.navigateTo({
       url: '/pages/clock/clock',
     })
   }

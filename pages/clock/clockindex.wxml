@@ -6,7 +6,7 @@
     <button class='btn' bindtap="addclock">添加</button>
 </view>
 <view class='section'>
-  <block wx:for="{{infos}}" data-index="{{index}}">
+  <block wx:for="{{infos}}" wx:key='key' data-index="{{index}}">
     <view class="pview">
       <view class="content">
         <div class='inner'>{{item}}</div>

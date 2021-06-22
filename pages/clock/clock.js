@@ -9,7 +9,12 @@ Page({
   data: {
     infos:['请添加事项'],
     infoindex:0,
-    hisclock:[]
+    hisclock:[],
+    userInfo: {
+      nickName: '点击登录',
+      avatarUrl: '/images/avatar.png'
+    },
+    hasLogin: false
   },
 
   /**
@@ -52,6 +57,18 @@ Page({
     })
   },
 
+  goAddClock: function(e){
+    if (this.data.hasLogin) {
+      wx.navigateTo({
+        url: '/pages/clock/clockindex',
+      });
+    }else{
+      wx.navigateTo({
+        url: "/pages/login/login"
+      });
+    }
+  },
+
   getUserInfoLists: function () {
     var that = this;
     wx.request({
@@ -81,40 +98,46 @@ Page({
 
   subclock: function () {
     var that = this;
-    if (this.clocklen == null || this.clocklen == '') {
-      wx.showToast({
-        title: '时长为0',
-        icon: 'none',
-        duration: 1000
-      })
-    } else if (this.data.infos[this.data.infoindex] == '请添加事项'){
-      wx.showToast({
-        title: '没有添加事项',
-        icon: 'none',
-        duration: 1000
-      })
-    } else {
-      wx.request({
-        url: app.globalData.hostip + "/clockInfo",
-        header: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        method: "POST",
-        data: { opt: 'add', text: that.data.infos[that.data.infoindex],c_len: that.clocklen, name: app.globalData.userInfo.nickName, uid: wx.getStorageSync('userid') },
-        complete: function (res) {
-          if (res == null || res.data == null) {
-            console.error('网络请求失败');
-            return;
-          } else {
-            wx.showToast({
-              title: '打卡成功',
-              icon: 'images/good.png',
-              duration: 1000
-            })
+    if (this.data.hasLogin) {
+      if (this.clocklen == null || this.clocklen == '') {
+        wx.showToast({
+          title: '时长为0',
+          icon: 'none',
+          duration: 1000
+        })
+      } else if (this.data.infos[this.data.infoindex] == '请添加事项'){
+        wx.showToast({
+          title: '没有添加事项',
+          icon: 'none',
+          duration: 1000
+        })
+      } else {
+        wx.request({
+          url: app.globalData.hostip + "/clockInfo",
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: "POST",
+          data: { opt: 'add', text: that.data.infos[that.data.infoindex],c_len: that.clocklen, name: app.globalData.userInfo.nickName, uid: wx.getStorageSync('userid') },
+          complete: function (res) {
+            if (res == null || res.data == null) {
+              console.error('网络请求失败');
+              return;
+            } else {
+              wx.showToast({
+                title: '打卡成功',
+                icon: 'images/good.png',
+                duration: 1000
+              })
+            }
           }
-        }
-      })
-    }
+        })
+      }
+  }else{
+    wx.navigateTo({
+      url: "/pages/login/login"
+    });
+  }
   },
 
   gethisclockinfos: function () {
@@ -153,6 +176,14 @@ Page({
 
     this.getUserInfoLists();
     this.gethisclockinfos();
+    //获取用户的登录信息
+    if (app.globalData.hasLogin) {
+      let userInfo = wx.getStorageSync('userInfo');
+      this.setData({
+        userInfo: userInfo,
+        hasLogin: true
+      });
+    }
   },
 
   /**
