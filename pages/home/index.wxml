@@ -6,15 +6,15 @@
       <text class="txt jhx_f1">商品搜索, 共{{goodsCount}}款供您选择...</text>
     </navigator>
   </view>
-  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-    <swiper-item wx:for="{{banner}}" wx:key="id">
+  <!-- <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper-item wx:for="{{banner}}" wx:key="id"> -->
       <!-- <navigator url="{{item.link}}"> -->
-      <image src="{{item.url}}" background-size="cover"></image>
+      <!-- <image src="{{item.url}}" background-size="cover"></image> -->
       <!-- </navigator> -->
-    </swiper-item>
-  </swiper>
+    <!-- </swiper-item> -->
+  <!-- </swiper> -->
   <view class='news acea-row row-between-wrapper'>
-       <view class='pictrue'><image src='/static/images/news.png'></image></view>
+       <view class='pictrue'><image src='/images/news.png'></image></view>
        <view class='swiperTxt'>
             <swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="2500" duration="500" vertical="true" circular="true">
                 <block wx:for="{{articles}}" wx:for-index="index" wx:for-item="item" wx:key="id">
@@ -33,18 +33,18 @@
     </view>
 
 
-  <view class="m-menu jhx_bg0">
+  <!-- <view class="m-menu jhx_bg0">
     <navigator hover-class="none" class="item" url="/pages/category/category?id={{item.id}}" wx:for="{{channel}}" wx:key="id">
       <image src="{{item.iconUrl}}" background-size="cover"></image>
       <text class="jhx_f2">{{item.name}}</text>
     </navigator>
     <navigator hover-class="none" class="item" url="/pages/catalog/catalog" open-type="switchTab">
-      <image src="/static/images/channel_category.png" background-size="cover"></image>
+      <image src="/images/channel_category.png" background-size="cover"></image>
       <text class="jhx_f2">更多分类</text>
     </navigator>
-  </view>
+  </view> -->
 
-  <view class="a-section a-groupon" wx:if="{{groupons.length > 0}}">
+  <!-- <view class="a-section a-groupon" wx:if="{{groupons.length > 0}}">
     <view class='title acea-row row-between-wrapper'>
       <view class='text'>
         <view class='name jhx_f4'>团购专区</view>
@@ -52,9 +52,9 @@
       </view>
       <navigator class='more jhx_f6' hover-class="none" url='/pages/groupon/grouponList/grouponList'>更多<text class='iconfont icon-jiantou'></text>
       </navigator>
-    </view>
+    </view> -->
 
-    <view class="b">
+    <!-- <view class="b">
       <view class="item" wx:for="{{groupons}}" wx:for-index="index" wx:for-item="item" wx:key="id">
         <navigator url="/pages/goods/goods?id={{item.goods.id}}">
           <image class="img" src="{{item.goods.picUrl}}" background-size="cover"></image>
@@ -78,8 +78,8 @@
         </navigator>
       </view>
     </view>
-  </view>
-  <view class="a-section a-topic" wx:if="topics.length > 0">
+  </view> -->
+  <!-- <view class="a-section a-topic" wx:if="topics.length > 0">
     <view class="h">
       <view>
         <navigator url="/pages/topic/topic">
@@ -94,24 +94,24 @@
             <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
             <view class="np">
               <text class="name jhx_f7">{{item.title}}</text>
-              <text class="price jhx_f8">￥{{item.price}}元起</text>
+              <text class="price jhx_f8">￥{{item.retailPrice}}元起</text>
             </view>
             <text class="desc jhx_f5">{{item.subtitle}}</text>
           </navigator>
         </view>
       </scroll-view>
     </view>
-  </view>
+  </view> -->
   
   <view class="a-section a-brand">
-    <view class='title acea-row row-between-wrapper'>
+    <!-- <view class='title acea-row row-between-wrapper'>
       <view class='text'>
         <view class='name jhx_f4'>品牌厂商直供</view>
         <view class='desc jhx_f5'>知名品牌厂商直供，好品质，更优惠</view>
       </view>
       <navigator class='more jhx_f6' hover-class="none" url='../brand/brand'>更多<text class='iconfont icon-jiantou'></text>
       </navigator>
-    </view>
+    </view> -->
     <view class="b">
       <view class="item item-1" wx:for="{{brands}}" wx:key="id">
         <navigator url="/pages/brandDetail/brandDetail?id={{item.id}}">
@@ -133,7 +133,7 @@
         <view class='name jhx_f4'>全网 · 新品首发<text class='new font-color'>NEW~</text></view>
         <view class='desc jhx_f5'>全网最新上架上架</view>
       </view>
-      <navigator class='more jhx_f6' hover-class="none" url='../newGoods/newGoods'>更多<text class='iconfont icon-jiantou'></text>
+      <navigator class='more jhx_f6' hover-class="none" url='../hotGoods/hotGoods'>更多<text class='iconfont icon-jiantou'></text>
       </navigator>
     </view>
     <view class="b">
@@ -151,7 +151,7 @@
    <view class='hot-bg'>
           <view class='title acea-row row-between-wrapper'>
             <view class='text'>
-            <text class='label'>人气推荐</text>根据销量、搜索、好评等综合得出
+            <text class='label'>人气推荐</text><!--根据销量、搜索、好评等综合得出 -->
             </view>
             <navigator class='more jhx_f6' hover-class="none" url='../hotGoods/hotGoods'>更多<text class="iconfont icon-jiantou"></text></navigator>
           </view>
@@ -173,7 +173,7 @@
     </view>
   </view>
 
-  <view class="good-grid" wx:for="{{floorGoods}}" wx:key="id">
+  <!-- <view class="good-grid" wx:for="{{floorGoods}}" wx:key="id">
     <view class="h">
       <text class="jhx_f4">{{item.name}}</text>
     </view>
@@ -191,7 +191,7 @@
     <navigator url="/pages/category/category?id={{item.id}}" class="t">
       <view class="txt jhx_f6">{{'更多'+item.name+'好物 >'}}</view>
     </navigator>
-  </view>
-</view>
+  </view>-->
+</view> 
 <coupon-window window='{{window}}' couponList="{{coupon}}" bind:onColse="onColse"></coupon-window>
 

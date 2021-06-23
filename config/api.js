@@ -1,13 +1,13 @@
 // 以下是业务服务器API地址
  // 本机开发API地址
-var WxApiRoot = 'http://localhost:8080/demo/wx/';
+var WxApiRoot = 'http://localhost:8081/';
 // 测试环境部署api地址
 // var WxApiRoot = 'http://192.168.0.101:8070/demo/wx/';
 // 线上云平台api地址
-//var WxApiRoot = 'https://www.dtsshop.com/demo/wx/';
+//var WxApiRoot = 'https://www.boredno.com/wx/';
 
 module.exports = {
-  IndexUrl: WxApiRoot + 'home/index', //首页数据接口
+  IndexUrl: WxApiRoot + 'mallIndex', //首页数据接口
   CatalogList: WxApiRoot + 'catalog/index', //分类目录全部分类数据接口
   CatalogCurrent: WxApiRoot + 'catalog/current', //分类目录当前分类数据接口
 
@@ -19,10 +19,10 @@ module.exports = {
   AuthRegisterCaptcha: WxApiRoot + 'auth/regCaptcha', //验证码
   AuthBindPhone: WxApiRoot + 'auth/bindPhone', //绑定微信手机号
 
-  GoodsCount: WxApiRoot + 'goods/count', //统计商品总数
-  GoodsList: WxApiRoot + 'goods/list', //获得商品列表
+  GoodsCount: WxApiRoot + 'goodsCount', //统计商品总数
+  GoodsList: WxApiRoot + 'wx/getGoodsList', //获得商品列表
   GoodsCategory: WxApiRoot + 'goods/category', //获得分类数据
-  GoodsDetail: WxApiRoot + 'goods/detail', //获得商品的详情
+  GoodsDetail: WxApiRoot + 'wx/getGoodsDetail', //获得商品的详情
   GoodsRelated: WxApiRoot + 'goods/related', //商品详情页的关联商品（大家都在看）
 
   CreateShareImg: WxApiRoot + 'agency/createShareImg', //创建分享海报
@@ -36,7 +36,7 @@ module.exports = {
   CartUpdate: WxApiRoot + 'cart/update', // 更新购物车的商品
   CartDelete: WxApiRoot + 'cart/delete', // 删除购物车的商品
   CartChecked: WxApiRoot + 'cart/checked', // 选择或取消选择商品
-  CartGoodsCount: WxApiRoot + 'cart/goodscount', // 获取购物车商品件数
+  CartGoodsCount: WxApiRoot + 'cartGoodsCount', // 获取购物车商品件数
   CartCheckout: WxApiRoot + 'cart/checkout', // 下单前信息确认
 
   CollectList: WxApiRoot + 'collect/list', //收藏列表
@@ -94,7 +94,7 @@ module.exports = {
   CouponReceive: WxApiRoot + 'coupon/receive', //优惠券领取
   CouponReceiveAll: WxApiRoot + 'coupon/receiveAll', //优惠券领取
   CouponExchange: WxApiRoot + 'coupon/exchange', //优惠券兑换
-  GetUserCoupon: WxApiRoot + 'coupon/getUserCoupon',//用户个人可领取优惠券查询
+  GetUserCoupon: WxApiRoot + 'getUserCoupon',//用户个人可领取优惠券查询
 
   StorageUpload: WxApiRoot + 'storage/upload', //图片上传,
 

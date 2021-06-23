@@ -28,11 +28,11 @@ Page({
     if (userInfo){
       shareUserId = userInfo.userId;
     }
-    console.log('/pages/index/index?shareUserId=' + shareUserId);
+    console.log('/pages/home/index?shareUserId=' + shareUserId);
     return {
-      title: '聚惠星',
-      desc: '长沙市聚惠星科技与您共约',
-      path: '/pages/index/index?shareUserId=' + shareUserId
+      title: '坤坤特产',
+      desc: '土特产专卖',
+      path: '/pages/home/index?shareUserId=' + shareUserId
     }
   },
 
@@ -52,7 +52,7 @@ Page({
           hotGoods: res.data.hotGoodsList,
           topics: res.data.topicList,
           brands: res.data.brandList,
-          floorGoods: res.data.floorGoodsList,
+          // floorGoods: res.data.floorGoodsList,
           banner: res.data.banner,
           articles: res.data.articles,
           groupons: res.data.grouponList,
@@ -160,7 +160,7 @@ Page({
     let that = this;
     let userInfo = wx.getStorageSync('userInfo');
     if (userInfo){
-      util.request(api.GetUserCoupon, null, 'GET').then(res => {
+      util.request(api.GetUserCoupon, {userId: userInfo.userId}, 'POST').then(res => {
         if (res.errno === 0) {
 		    that.setData({
 		          coupon: res.data.couponList
@@ -191,7 +191,7 @@ Page({
   getCoupon(e) {
     if (!app.globalData.hasLogin) {
       wx.navigateTo({
-        url: "/pages/auth/login/login"
+        url: "/pages/login/login"
       });
     }
 
