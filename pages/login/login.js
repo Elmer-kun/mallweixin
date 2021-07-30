@@ -26,7 +26,8 @@ Page({
             })
           }).catch((err) => {
             app.globalData.hasLogin = false;
-            util.showErrorToast('微信登录失败');
+            console.log(err);
+            util.showErrorToast('微信登录异常');
           });
         });
       },
@@ -51,7 +52,7 @@ Page({
         })
       }).catch((err) => {
         app.globalData.hasLogin = false;
-        util.showErrorToast('微信登录失败');
+        util.showErrorToast('微信登录异常');
       });
 
     });

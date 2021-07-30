@@ -11,7 +11,7 @@ module.exports = {
   CatalogList: WxApiRoot + 'catalog/index', //分类目录全部分类数据接口
   CatalogCurrent: WxApiRoot + 'catalog/current', //分类目录当前分类数据接口
 
-  AuthLoginByWeixin: WxApiRoot + 'auth/login_by_weixin', //微信登录
+  AuthLoginByWeixin: WxApiRoot + 'loginWx', //微信登录
   AuthLoginByAccount: WxApiRoot + 'auth/login', //账号登录
   AuthLogout: WxApiRoot + 'auth/logout', //账号登出
   AuthRegister: WxApiRoot + 'auth/register', //账号注册
@@ -23,21 +23,21 @@ module.exports = {
   GoodsList: WxApiRoot + 'wx/getGoodsList', //获得商品列表
   GoodsCategory: WxApiRoot + 'goods/category', //获得分类数据
   GoodsDetail: WxApiRoot + 'wx/getGoodsDetail', //获得商品的详情
-  GoodsRelated: WxApiRoot + 'goods/related', //商品详情页的关联商品（大家都在看）
+  GoodsRelated: WxApiRoot + 'wx/related', //商品详情页的关联商品（大家都在看）
 
   CreateShareImg: WxApiRoot + 'agency/createShareImg', //创建分享海报
 
   BrandList: WxApiRoot + 'brand/list', //品牌列表
   BrandDetail: WxApiRoot + 'brand/detail', //品牌详情
 
-  CartList: WxApiRoot + 'cart/index', //获取购物车的数据
-  CartAdd: WxApiRoot + 'cart/add', // 添加商品到购物车
-  CartFastAdd: WxApiRoot + 'cart/fastadd', // 立即购买商品
-  CartUpdate: WxApiRoot + 'cart/update', // 更新购物车的商品
-  CartDelete: WxApiRoot + 'cart/delete', // 删除购物车的商品
-  CartChecked: WxApiRoot + 'cart/checked', // 选择或取消选择商品
+  CartList: WxApiRoot + 'cartIndex', //获取购物车的数据
+  CartAdd: WxApiRoot + 'cartAdd', // 添加商品到购物车
+  CartFastAdd: WxApiRoot + 'cartFastAdd', // 立即购买商品
+  CartUpdate: WxApiRoot + 'cartUpdate', // 更新购物车的商品
+  CartDelete: WxApiRoot + 'cartDelete', // 删除购物车的商品
+  CartChecked: WxApiRoot + 'cartChecked', // 选择或取消选择商品
   CartGoodsCount: WxApiRoot + 'cartGoodsCount', // 获取购物车商品件数
-  CartCheckout: WxApiRoot + 'cart/checkout', // 下单前信息确认
+  CartCheckout: WxApiRoot + 'cartCheckOut', // 下单前信息确认
 
   CollectList: WxApiRoot + 'collect/list', //收藏列表
   CollectAddOrDelete: WxApiRoot + 'collect/addordelete', //添加或取消收藏

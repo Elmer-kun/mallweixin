@@ -29,10 +29,9 @@ function request(url, data = {}, method = "GET") {
       method: method,
       header: {
         'Content-Type': 'application/json',
-        'X-Dts-Token': wx.getStorageSync('token')
+        'X-Mall-Token': wx.getStorageSync('token')
       },
       success: function(res) {
-
         if (res.statusCode == 200) {
 
           if (res.data.errno == 501) {
@@ -45,7 +44,7 @@ function request(url, data = {}, method = "GET") {
             }
             // 切换到登录页面
             wx.navigateTo({
-              url: '/pageslogin/login'
+              url: '/pages/login/login'
             });
           } else {
             resolve(res.data);

@@ -1,3 +1,5 @@
+
+var user = require('./utils/user.js');
 //app.js
 App({
   onLaunch: function () {
@@ -58,6 +60,14 @@ App({
         }
       }
     })
+  },
+  onShow: function(options) {
+    user.checkLogin().then(res => {
+      this.globalData.userInfo = wx.getStorageSync('userInfo');
+      this.globalData.hasLogin = true;
+    }).catch(() => {
+      this.globalData.hasLogin = false;
+    });
   },
   globalData: {
     userInfo: null,

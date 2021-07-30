@@ -1,6 +1,5 @@
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
-var user = require('../../utils/user.js');
 
 var app = getApp();
 
@@ -37,7 +36,6 @@ Page({
     if (app.globalData.hasLogin) {
       this.getCartList();
     }
-
     this.setData({
       hasLogin: app.globalData.hasLogin
     });
@@ -51,32 +49,34 @@ Page({
   },
   goLogin() {
     wx.navigateTo({
-      url: "/pages/auth/login/login"
+      url: "/pages/login/login"
     });
   },
   getCartList: function() {
     let that = this;
-    util.request(api.CartList).then(function(res) {
-      if (res.errno === 0) {
-        if (res.data.isMultiOrderModel === 1){
+    if (this.data.hasLogin) {
+      util.request(api.CartList).then(function(res) {
+        if (res.errno === 0) {
+          if (res.data.isMultiOrderModel === 1){
+            that.setData({
+              isMultiOrderModel: res.data.isMultiOrderModel,
+              brandCartgoods: res.data.brandCartgoods,
+              cartTotal: res.data.cartTotal
+            });
+          } else {
+            that.setData({
+              isMultiOrderModel: res.data.isMultiOrderModel,
+              cartGoods: res.data.cartList,
+              cartTotal: res.data.cartTotal
+            });
+          }
+
           that.setData({
-            isMultiOrderModel: res.data.isMultiOrderModel,
-            brandCartgoods: res.data.brandCartgoods,
-            cartTotal: res.data.cartTotal
-          });
-        } else {
-          that.setData({
-            isMultiOrderModel: res.data.isMultiOrderModel,
-            cartGoods: res.data.cartList,
-            cartTotal: res.data.cartTotal
+            checkedAllStatus: that.isCheckedAll()
           });
         }
-
-        that.setData({
-          checkedAllStatus: that.isCheckedAll()
-        });
-      }
-    });
+      });
+    }
   },
   isChildCheckedAll: function (cartList){
     return cartList.every(function (element, index, array) {
@@ -222,7 +222,6 @@ Page({
         }
       });
     }
-    console.log(checkedGoodsCount);
     return checkedGoodsCount;
   },
   checkedAll: function() {
@@ -246,7 +245,6 @@ Page({
         isChecked: that.isCheckedAll() ? 0 : 1
       }, 'POST').then(function(res) {
         if (res.errno === 0) {
-          console.log(res.data);
           if (res.data.isMultiOrderModel === 1) {
             that.setData({
               isMultiOrderModel: res.data.isMultiOrderModel,
@@ -331,7 +329,7 @@ Page({
 
         that.setData({
          // editCartList: this.data.cartGoods,
-          cartGoods: tmpCartList,
+          cartGoods: tmpCartData,
           isEditCart: !that.data.isEditCart,
           checkedAllStatus: that.isCheckedAll(),
           'cartTotal.checkedGoodsCount': that.getCheckedGoodsCount()

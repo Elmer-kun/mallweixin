@@ -52,7 +52,7 @@ function loginByWeixin(userInfo) {
   return new Promise(function(resolve, reject) {
     return login().then((res) => {
       //登录远程服务器
-      util.request(app.globalData.hostip+'/loginWx', {
+      util.request(api.AuthLoginByWeixin, {
         code: res.code,
         userInfo: userInfo,
         shareUserId: shareUserId
